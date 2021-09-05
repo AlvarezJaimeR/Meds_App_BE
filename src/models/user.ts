@@ -1,3 +1,5 @@
+import { Schema } from "mongoose";
+
 const mongoose = require("mongoose");
 const config = require("config");
 const Joi = require("joi");
@@ -8,7 +10,8 @@ var jwtSecret = process.env.JWT_SECRET;
 const userSchema = new mongoose.Schema({
     userName: { type: String, require: true, minlength: 2, maxlength: 255 },
     email: { type: String, require: true, minlength: 2, maxlength: 255 },
-    password: { type: String, require: true, minlength: 3, maxlength: 1024 }
+    password: { type: String, require: true, minlength: 3, maxlength: 1024 },
+    _prescriptions: [{type: Schema.Types.ObjectId, ref: "Prescription"}]
 });
 
 userSchema.methods.generateAuthToken = function () {
