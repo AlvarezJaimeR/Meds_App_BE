@@ -7,7 +7,7 @@ const Joi = require("joi");
 const prescriptionSchema = new mongoose.Schema({
     prescriptionName: { type: String, require: true, minlength: 2, maxlength: 255 },
     sideEffects: { type: String, require: true, minlength: 2, maxlength: 255 },
-    _user: { type: mongoose.Schema.Types.ObjectId, ref: 'user' }
+    _user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 function validatePrescription(prescription) {
