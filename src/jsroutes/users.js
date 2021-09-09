@@ -1,6 +1,4 @@
 const { User } = require("../jsmodels/user");
-const bcrypt = require("bcrypt");
-const auth = require("../middleware/auth");
 const express = require("express");
 const { Prescription } = require("../jsmodels/prescription");
 const router = express.Router();
